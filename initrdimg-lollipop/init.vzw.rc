@@ -1,0 +1,14 @@
+on boot
+#Permission for Hiddenmenu files
+    chown mot_tcmd system /pds/public/hiddenmenu/data/program
+    chown mot_tcmd system /pds/public/hiddenmenu/data/akey
+    chown mot_tcmd system /pds/public/hiddenmenu/data/fts
+
+    chmod 0644 /pds/public/hiddenmenu/data/program
+    chmod 0644 /pds/public/hiddenmenu/data/akey
+    chmod 0644 /pds/public/hiddenmenu/data/fts
+#Permission for telephony
+    mkdir /pds/public/telephony 0770 radio radio
+on fs
+    # Load FIPS kernel module
+    exec /system/bin/fips_loader /system/lib/modules
